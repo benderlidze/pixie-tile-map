@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@pixi/tilemap@latest/dist/pixi-tilemap.umd.js"></script>
+</head>
+
+<body>
+    <script>
+
+        // Create the application helper and add its render target to the page
+        let app = new PIXI.Application({ width: 1000, height: 1000 });
+        document.body.appendChild(app.view);
+        // later, in the pan function
+        app.stage.x = -100
+        app.stage.y = -100
+
+        // later in the zoom function
+        app.stage.scale.x = 1.5
+        app.stage.scale.y = 1.5
+
+        // Create the sprite and add it to the stage
+        let sprite = PIXI.Sprite.from('imgs/map.jpeg');
+        app.stage.addChild(sprite);
+
+
+
+    </script>
+</body>
+
+</html>
