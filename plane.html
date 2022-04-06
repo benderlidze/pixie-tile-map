@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
+    <script src="js/plane.js"></script>
+
+</head>
+
+<body>
+    <script>
+
+        let plane;
+        const app = new PIXI.Application({
+            width: 1000,
+            height: 1000,
+            backgroundColor: 0x1099bb,
+            resolution: window.devicePixelRatio || 1,
+        });
+        document.body.appendChild(app.view);
+
+        const container = new PIXI.Container();
+        app.stage.addChild(container);
+
+        doneLoading()
+
+
+        animationLoop()
+        function animationLoop() {
+            requestAnimationFrame(animationLoop)
+            //plane.rotation += 0.01
+            //plane.moveLeft()
+        }
+
+        function doneLoading() {
+            const planeImage = PIXI.Texture.from('imgs/plane.png');
+            plane = new Plane({
+                x: app.screen.width / 2,
+                y: app.screen.height - 120,
+                texture: planeImage,
+                hp: 100,
+                speed: 2
+            })
+            app.stage.addChild(plane)
+
+            document.addEventListener("keydown", e => {
+                console.log('e', e);
+
+                switch (e.keyCode) {
+                    case 37:
+                        //left arrow
+                        plane.moveLeft()
+                        break;
+                    case 39:
+                        //right arrow
+                        plane.moveRight()
+                        break
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
