@@ -43,24 +43,15 @@
                 y: app.screen.height - 120,
                 texture: planeImage,
                 hp: 100,
-                speed: 2
+                speed: 4
             })
+            plane.init()
+
+
             app.stage.addChild(plane)
 
-            document.addEventListener("keydown", e => {
-                console.log('e', e);
 
-                switch (e.keyCode) {
-                    case 37:
-                        //left arrow
-                        plane.moveLeft()
-                        break;
-                    case 39:
-                        //right arrow
-                        plane.moveRight()
-                        break
-                }
-            })
+
         }
     </script>
 </body>
